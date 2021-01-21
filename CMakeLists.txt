@@ -1,10 +1,10 @@
 # CMake 最低版本号要求
 cmake_minimum_required(VERSION 3.17)
 #
-## 项目名称
+# 项目名称
 project(cplusproject)
 #
-## C14标准
+# C14标准
 set(CMAKE_CXX_STANDARD 14)
 #
 ## 查找当前目录下的所有源文件
