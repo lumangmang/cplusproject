@@ -26,30 +26,53 @@ void example(void) {
     // const int &ri = temp;
     double dVal = 3.14;
     const int &ri = dVal;
-
     int i = 42;
     int &r = i;
     const int &rs = i;
     r = 0;
+    std::cout << r << rs;
+}
 
+/**
+ * 常量指针
+ * 指针的指向可以修改，指针指向的对象的值不能修改
+ */
+void const_pointer() {
     const double pi = 3.14;
     // double *ptr = &pi // 错误,ptr是一个普通指针
     // 要想存放常量对象的地址，只能使用指向常量的指针
     const double *ptr = &pi;
     // 指向常量的指针不能用于改变其所指对象的值
-    // *ptr = 0; // 错误，不能修改所指的对象的值
-    std::cout << r << rs;
+    // 错误，不能修改所指的对象的值
+    // *ptr = 0;
+
+    // 可以修改常量指针的指向
+    const double dVal = 3.14159;
+    ptr = &dVal;
 }
 
 /**
- * 常量指针必须初始化，并且一旦初始化完成，则它的值(存放在指针中的地址)不能改变
+ * 指针常量
+ * 指针的指向不可以修改,指针指向的对象的值可以修改
  */
-void const_pointer() {
+void pointer_const() {
     int errNum = 0;
     int iVal = 20;
     int *const curErr = &errNum; // curErr将一直指向errNum
-    // curErr = &iVal; // 错误，不能改变常量指针的值
+    // curErr = &iVal; // 错误，不能改变指针常量的指向
+    // 可以修改指针指向的对象的值
+    *curErr = iVal;
+}
+
+/**
+ * 指向常量对象的常量指针
+ * 指针的指向和指针指向的对象的值都不可以修改
+ */
+void const_pointer_const() {
     const double pi = 3.14;
+    const double dVal = 3.1415;
     // pip是一个指向常量对象的常量指针
     const double *const pip = &pi;
+    // *pip = 20; // 错误,指针指向的对象的值不可以修改
+    // pip = &dVal; // 错误,指针的指向不可修改
 }

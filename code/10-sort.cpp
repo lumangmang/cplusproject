@@ -16,8 +16,34 @@ using namespace std;
  */
 void bubble_sort();
 
+void bubble_sort_pointer(int *array, int len);
+
 int main() {
+    int a[] = {2, 3, 1, 5};
+    bubble_sort_pointer(a, 4);
     return 0;
+}
+
+/**
+ * 指针实现数组冒泡排序
+ * @param array 数组首地址
+ * @param len 数组长度
+ */
+void bubble_sort_pointer(int *array, int len) {
+    int temp;
+    for (int i = 0; i < len - 1; i++) {
+        for (int j = 0; j < len - i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < len; i++) {
+        cout << array[i] << endl;
+    }
 }
 
 void bubble_sort() {
